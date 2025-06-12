@@ -12,6 +12,7 @@ disable=
     W0719, #broad-exception-raised
     E1101, #no-member
     C0411, #wrong-import-order
+    W0613, #unused-argument
     
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
