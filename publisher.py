@@ -9,7 +9,7 @@ class RabbitMQPublisher:
         self.__password = "guest"
         self.__exchange = "minha_exchange"
         self.__routing_key = ""
-        self.__chanel = self.create_channel()
+        self.__channel = self.create_channel()
 
     def create_channel(self):
         connection_parameters = pika.ConnectionParameters(
@@ -24,7 +24,7 @@ class RabbitMQPublisher:
         return channel
 
     def send_message(self, body: dict):
-        self.__chanel.basic_publish(
+        self.__channel.basic_publish(
             exchange=self.__exchange,
             routing_key=self.__routing_key,
             body=json.dumps(body),
@@ -34,4 +34,4 @@ class RabbitMQPublisher:
         )
 
 rabbit_mq_publisher = RabbitMQPublisher()
-rabbit_mq_publisher.send_message({ "msg": "Estou no Publisher" })
+rabbit_mq_publisher.send_message({ "msg": "Testando meu consumidor" })
